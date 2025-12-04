@@ -18,7 +18,7 @@
 
 // Give the option to play again
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   const MIN_NUMBER = 1;
   const MAX_NUMBER = 10;
   let secretNumber;
@@ -29,18 +29,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const restartBtn = document.getElementById("restartBtn");
   const message = document.getElementById("message");
 
+  // Function to start or restart the game
   function startGame() {
-    secretNumber = Math.floor(Math.random() * MAX_NUMBER) + 1;
+    secretNumber = Math.floor(Math.random() * MAX_NUMBER) + 1; // 1-10
     attempts = 0;
     message.textContent = "";
     guessInput.value = "";
     guessInput.disabled = false;
     guessBtn.disabled = false;
-    console.log("Secret Number (for debugging):", secretNumber);
+    console.log("Secret Number (debug):", secretNumber); // For debugging
   }
 
-  guessBtn.addEventListener("click", () => {
-    const guess = parseInt(guessInput.value);
+  // Event listener for guessing
+  guessBtn.addEventListener("click", function () {
+    const guess = parseInt(guessInput.value); // Ensure the input is a number
 
     if (isNaN(guess) || guess < MIN_NUMBER || guess > MAX_NUMBER) {
       message.textContent = `Please enter a number between ${MIN_NUMBER} and ${MAX_NUMBER}.`;
@@ -60,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Event listener for restart button
   restartBtn.addEventListener("click", startGame);
 
   // Start the game when the page loads
