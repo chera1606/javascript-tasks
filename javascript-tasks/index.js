@@ -1,45 +1,41 @@
-function rockPaperScissorsGame() {
-  console.log("Rock , peper, seciddors game");
-  const userChoice = prompt(
-    "Enter your choice (rock, paper, scissor): "
-  ).toLowerCase();
-  let computerChoice;
-  const randomNmber = Math.floor(Math.random() * 3) + 1;
-  if (randomNmber === 1) {
-    computerChoice = "rock";
-  } else if (randomNmber === 1) {
-    computerChoice = "paper";
-  } else {
-    computerChoice = "scissor";
-  }
+function playGame(userChoice) {
+  const choices = ["rock", "paper", "scissor"];
+  const computerChoice = choices[Math.floor(Math.random() * 3)];
 
-  console.log("user choice:", userChoice);
-  console.log("computer choice:", computerChoice);
+  // Show choices with span elements
+  document.querySelector("#user-choice .choice-value").textContent = userChoice;
+  document.querySelector("#computer-choice .choice-value").textContent =
+    computerChoice;
 
-  if (
-    (computerChoice === "rock" && userChoice === "scissor") ||
-    (computerChoice === "scissor" && userChoice === "paper") ||
-    (computerChoice === "paper" && userChoice === "rock")
-  ) {
-    console.log("My Bad !!! You Lose");
-  } else if (computerChoice === userChoice) {
-    console.log("It's a Tie !!!");
+  // Determine result
+  let result = "";
+  let resultColor = "#ff6600"; // default orange for tie
+
+  if (userChoice === computerChoice) {
+    result = "It's a Tie!";
+    resultColor = "#ff9900"; // orange-ish
   } else if (
-    (computerChoice === "scissor" && userChoice === "rock") ||
-    (computerChoice === "paper" && userChoice === "scissor") ||
-    (computerChoice === "rock" && userChoice === "paper")
+    (userChoice === "rock" && computerChoice === "scissor") ||
+    (userChoice === "paper" && computerChoice === "rock") ||
+    (userChoice === "scissor" && computerChoice === "paper")
   ) {
-    console.log("BOOMM !!! You Win !!!");
+    result = "BOOM! You Win!";
+    resultColor = "green";
   } else {
-    console.log("Invalid choice, please try again.");
+    result = "My Bad! You Lose!";
+    resultColor = "red";
   }
 
-  const playAgainPrompt = prompt("Do you want to play again? (yes/no)");
-  const playAgain = playAgainPrompt ? playAgainPrompt.toLowerCase() : "no";
-  if (playAgain === "yes") {
-    rockPaperScissorsGame();
-  } else {
-    console.log("Thanks for playing! Goodbye.");
-  }
+  const winnerSpan = document.querySelector("#winner .choice-value");
+  winnerSpan.textContent = result;
+  winnerSpan.style.color = resultColor;
 }
-rockPaperScissorsGame();
+
+// Reset game
+function resetGame() {
+  document.querySelector("#user-choice .choice-value").textContent = "";
+  document.querySelector("#computer-choice .choice-value").textContent = "";
+  const winnerSpan = document.querySelector("#winner .choice-value");
+  winnerSpan.textContent = "";
+  winnerSpan.style.color = "#ff6600"; // reset to default
+}
