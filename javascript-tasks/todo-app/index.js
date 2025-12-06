@@ -1,6 +1,4 @@
 function addTodo() {
-  console.log("Add Todo function called");
-
   const todoInput = document.getElementById("todo-input");
   const todoList = document.getElementById("todo-list");
 
@@ -9,14 +7,22 @@ function addTodo() {
   const li = document.createElement("li");
   li.innerText = todo;
 
-  const btn = document.createElement("button");
-  btn.innerText = "Delete";
-  btn.className = "delete-btn";
+  const completeBtn = document.createElement("button");
+  completeBtn.innerText = "Completed✔";
+  completeBtn.className = "complete-btn";
+  completeBtn.onclick = function () {
+    li.classList.toggle("completed");
+  };
+  li.appendChild(completeBtn);
 
-  btn.onclick = function () {
+  const deleteBtn = document.createElement("button");
+  deleteBtn.innerText = "Delete❌";
+  deleteBtn.className = "delete-btn";
+  deleteBtn.onclick = function () {
     li.remove();
   };
-  li.appendChild(btn);
+  li.appendChild(deleteBtn);
+
   todoList.appendChild(li);
   todoInput.value = "";
 }
