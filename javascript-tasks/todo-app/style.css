@@ -14,3 +14,7 @@
 .delete-btn:hover {
   background-color: #e60000;
 }
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
