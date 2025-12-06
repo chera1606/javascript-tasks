@@ -18,3 +18,18 @@
   text-decoration: line-through;
   color: gray;
 }
+.complete-btn {
+  margin-left: 10px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.complete-btn:hover {
+  background-color: #45a049;
+}
