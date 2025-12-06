@@ -13,6 +13,7 @@ function addTodo() {
   completeBtn.onclick = function () {
     li.classList.toggle("completed");
   };
+  
   li.appendChild(completeBtn);
 
   const deleteBtn = document.createElement("button");
