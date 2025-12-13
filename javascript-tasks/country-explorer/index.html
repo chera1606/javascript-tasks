@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Explorer</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script
+      async
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+
+    <script defer type="module" src="main.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Country Explorer</h1>
+      </div>
+
+      <div class="search-section">
+        <input id="searchInput" type="text" placeholder="Enter country name" />
+        <button id="searchBtn">Search</button>
+      </div>
+
+      <div id="loader" class="loader hidden">Loading...</div>
+      <div id="error" class="error hidden"></div>
+
+      <div id="countryDetails" class="country-details"></div>
+
+      <div id="map"></div>
+    </div>
+  </body>
+</html>
