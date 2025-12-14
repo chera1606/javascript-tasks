@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
       message.textContent = `Please enter a number between ${MIN_NUMBER} and ${MAX_NUMBER}.`;
       return;
     }
-
     attempts++;
 
     if (guess < secretNumber) {
@@ -61,10 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
       guessBtn.disabled = true;
     }
   });
-
   // Event listener for restart button
   restartBtn.addEventListener("click", startGame);
-
-  // Start the game when the page loads
+ // Start the game when the page loads
   startGame();
 });
