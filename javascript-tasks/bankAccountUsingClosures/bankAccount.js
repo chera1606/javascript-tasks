@@ -5,7 +5,7 @@
 
 function createBankAccount(initialBalance) {
   let balance = initialBalance;
-
+  
   return {
     deposit: (amount) => {
       balance += amount;
