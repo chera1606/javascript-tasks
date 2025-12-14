@@ -1,12 +1,9 @@
 function playGame(userChoice) {
   const choices = ["rock", "paper", "scissor"];
   const computerChoice = choices[Math.floor(Math.random() * 3)];
-
   // Show choices with span elements
   document.querySelector("#user-choice .choice-value").textContent = userChoice;
-  document.querySelector("#computer-choice .choice-value").textContent =
-    computerChoice;
-
+  document.querySelector("#computer-choice .choice-value").textContent = computerChoice;
   // Determine result
   let result = "";
   let resultColor = "#ff6600"; // default orange for tie
